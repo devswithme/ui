@@ -6,6 +6,7 @@ import { mkdir, writeFile } from "fs/promises";
 import { fetchWithTimeout } from "../utils/fetch.js";
 import type { InputType } from "../utils/types.js";
 import { ASSET_URL } from "../utils/constants.js";
+import { exec } from "child_process";
 
 async function promptInitOptions(): Promise<InputType> {
   const answers = await inquirer.prompt<InputType>([
@@ -42,6 +43,17 @@ async function promptInitOptions(): Promise<InputType> {
   ]);
 
   return answers;
+}
+
+function installPackage(pm: string, pkg: string) {
+  return new Promise<void>((resolve, reject) => {
+    exec(`${pm} install ${pkg}`, (err, stdout, stderr) => {
+      if (err) return reject(err);
+      console.log(stdout);
+      console.error(stderr);
+      resolve();
+    });
+  });
 }
 
 async function writeConfigFile(configPath: string, payload: unknown) {
@@ -89,6 +101,10 @@ export function init(ui: Command) {
         await ensureDir(outputPath);
 
         await writeAsset(outputPath, "index.css", content);
+
+        console.log(chalk.gray(`Installing lucide-react ...`));
+        await installPackage(answers.pm, "lucide-react");
+        console.log(chalk.green("lucide-react installed."));
 
         console.log(chalk.green("Initialization complete."));
       } catch (err: unknown) {
