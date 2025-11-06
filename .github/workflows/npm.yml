@@ -1,13 +1,11 @@
 name: Auto Release CLI Package
 
 on:
+    push:
+        branches: [main]
     pull_request:
         types: [closed]
-        branches:
-            - main
-    push:
-        branches:
-            - main
+        branches: [main]
 
 jobs:
     release:
