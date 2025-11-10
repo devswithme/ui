@@ -1,0 +1,123 @@
+---
+title: Tabs
+description: A tabs component
+---
+
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@trakteer/tabs";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<div class="grid place-items-center *:w-full px-10 py-10 border rounded-xl">
+  <Tabs defaultValue="home">
+    <TabsList>
+      <TabsTrigger value="home">Home</TabsTrigger>
+      <TabsTrigger value="profile">Profile</TabsTrigger>
+      <TabsTrigger value="settings">Settings</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="home">
+      <p>This is Home tab.</p>
+    </TabsContent>
+    <TabsContent value="profile">
+      <p>This is Profile tab.</p>
+    </TabsContent>
+    <TabsContent value="settings">
+      <p>This is Settings tab.</p>
+    </TabsContent>
+  </Tabs>
+</div>
+
+### Usage
+
+```bash tab="npm"
+npx @fydemy/ui@latest add tabs
+```
+
+```bash tab="pnpm"
+pnpm dlx @fydemy/ui@latest add tabs
+```
+
+```bash tab="yarn"
+yarn @fydemy/ui@latest add tabs
+```
+
+```bash tab="bun"
+bunx --bun @fydemy/ui@latest add tabs
+```
+
+```jsx
+<Tabs defaultValue="home">
+  <TabsList>
+    <TabsTrigger value="home">Home</TabsTrigger>
+    <TabsTrigger value="profile">Profile</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="home">
+    <p>This is Home tab.</p>
+  </TabsContent>
+  <TabsContent value="profile">
+    <p>This is Profile tab.</p>
+  </TabsContent>
+  <TabsContent value="settings">
+    <p>This is Settings tab.</p>
+  </TabsContent>
+</Tabs>
+```
+
+<AutoTypeTable
+  type={`
+export type TabsProps = {
+  defaultValue: string;
+  children: React.ReactNode;
+  variant: "line";
+};
+`}
+/>
+
+### Examples
+
+import { Home, UserRound, Settings } from 'lucide-react';
+
+#### With Icons
+
+A tabs component with icons beside the text. Use `lucide-react` icon is recommended.
+
+<div class="grid place-items-center *:w-full px-10 py-10 border rounded-xl">
+  <Tabs defaultValue="home">
+    <TabsList>
+      <TabsTrigger value="home"><Home size={18} /> Home</TabsTrigger>
+      <TabsTrigger value="profile"><UserRound size={18} /> Profile</TabsTrigger>
+      <TabsTrigger value="settings"><Settings size={18} /> Settings</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="home">
+      <p>Welcome to your home dashboard.</p>
+    </TabsContent>
+    <TabsContent value="profile">
+      <p>Manage your profile settings here.</p>
+    </TabsContent>
+    <TabsContent value="settings">
+      <p>Configure your application preferences.</p>
+    </TabsContent>
+  </Tabs>
+</div>
+
+```jsx
+<Tabs defaultValue="home">
+  <TabsList>
+    <TabsTrigger value="home"><Home size={18} /> Home</TabsTrigger>
+    <TabsTrigger value="profile"><UserRound size={18} /> Profile</TabsTrigger>
+    <TabsTrigger value="settings"><Settings size={18} /> Settings</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="home">
+    <p>Welcome to your home dashboard.</p>
+  </TabsContent>
+  <TabsContent value="profile">
+    <p>Manage your profile settings here.</p>
+  </TabsContent>
+  <TabsContent value="settings">
+    <p>Configure your application preferences.</p>
+  </TabsContent>
+</Tabs>
+```
