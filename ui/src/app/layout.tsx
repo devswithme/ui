@@ -11,9 +11,6 @@ export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <Banner id="reg-npmjs">
-          We just registered to npmjs.com! @fydemy/ui
-        </Banner>
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

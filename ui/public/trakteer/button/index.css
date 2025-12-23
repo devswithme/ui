@@ -31,6 +31,26 @@ button[data-theme="trakteer"][data-style="shadow"]:hover {
   cursor: pointer;
 }
 
+button[data-theme="trakteer"][data-style="shadow"][data-variant="default"]:hover {
+  border-bottom: 1px solid var(--trakteer-default-border);
+}
+
+button[data-theme="trakteer"][data-style="shadow"][data-variant="outline"]:hover {
+  border-bottom: 1px solid var(--trakteer-outline-border);
+}
+
+button[data-theme="trakteer"][data-style="shadow"][data-variant="destructive"]:hover {
+  border-bottom: 1px solid var(--trakteer-destructive-border);
+}
+
+button[data-theme="trakteer"][data-style="shadow"][data-variant="dark"]:hover {
+  border-bottom: 1px solid var(--trakteer-dark-border);
+}
+
+button[data-theme="trakteer"][data-style="shadow"][data-variant="icon"]:hover {
+  border-bottom: 1px solid var(--trakteer-default-border);
+}
+
 button[data-theme="trakteer"]:not([data-style="shadow"]):hover {
   filter: brightness(1.05);
   cursor: pointer;

@@ -15,6 +15,7 @@ div.accordion[data-theme="trakteer"]
   border-bottom: 1px solid var(--trakteer-dark);
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 div.accordion[data-theme="trakteer"] > div.accordion_item_active {
